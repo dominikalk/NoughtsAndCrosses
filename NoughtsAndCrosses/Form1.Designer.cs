@@ -55,6 +55,9 @@
             this.player1Colourpnl = new System.Windows.Forms.Panel();
             this.player2Colourpnl = new System.Windows.Forms.Panel();
             this.winChangeColour = new System.Windows.Forms.Timer(this.components);
+            this.diffbox = new System.Windows.Forms.ComboBox();
+            this.difflbl = new System.Windows.Forms.Label();
+            this.computerWait = new System.Windows.Forms.Timer(this.components);
             this.drawingpnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -287,12 +290,43 @@
             this.winChangeColour.Interval = 150;
             this.winChangeColour.Tick += new System.EventHandler(this.winChangeColour_Tick);
             // 
+            // diffbox
+            // 
+            this.diffbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.diffbox.FormattingEnabled = true;
+            this.diffbox.Items.AddRange(new object[] {
+            "Easy",
+            "Medium",
+            "Hard"});
+            this.diffbox.Location = new System.Drawing.Point(309, 27);
+            this.diffbox.Name = "diffbox";
+            this.diffbox.Size = new System.Drawing.Size(113, 21);
+            this.diffbox.TabIndex = 24;
+            this.diffbox.Visible = false;
+            // 
+            // difflbl
+            // 
+            this.difflbl.AutoSize = true;
+            this.difflbl.Location = new System.Drawing.Point(307, 13);
+            this.difflbl.Name = "difflbl";
+            this.difflbl.Size = new System.Drawing.Size(50, 13);
+            this.difflbl.TabIndex = 25;
+            this.difflbl.Text = "Difficulty:";
+            this.difflbl.Visible = false;
+            // 
+            // computerWait
+            // 
+            this.computerWait.Interval = 1000;
+            this.computerWait.Tick += new System.EventHandler(this.computerWait_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(436, 327);
+            this.Controls.Add(this.difflbl);
+            this.Controls.Add(this.diffbox);
             this.Controls.Add(this.player2Colourpnl);
             this.Controls.Add(this.player1Colourpnl);
             this.Controls.Add(this.colourbtn);
@@ -342,6 +376,9 @@
         private System.Windows.Forms.Panel player1Colourpnl;
         private System.Windows.Forms.Panel player2Colourpnl;
         private System.Windows.Forms.Timer winChangeColour;
+        private System.Windows.Forms.ComboBox diffbox;
+        private System.Windows.Forms.Label difflbl;
+        private System.Windows.Forms.Timer computerWait;
     }
 }
 

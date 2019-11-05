@@ -14,6 +14,8 @@ namespace NoughtsAndCrosses
     {
         public bool isSinglePlayer;
 
+        bool started;
+
         bool player1Using;
         bool isPlayer1Winner;
 
@@ -46,6 +48,7 @@ namespace NoughtsAndCrosses
             player1Colourpnl.Invalidate();
             player2Colourpnl.Invalidate();
             colourModebox.SelectedIndex = 0;
+            diffbox.SelectedIndex = 0;
         }
 
         /*
@@ -64,6 +67,12 @@ namespace NoughtsAndCrosses
 
         public void singlePlayer() 
         {
+            started = false;
+            player1Using = true;
+            player1 = "You";
+            player2 = "Computer";
+            diffbox.Visible = true;
+            difflbl.Visible = true;
             player1Colourpnl.Visible = false;
             player2Colourpnl.Visible = false;
             player1lbl.Visible = false;
@@ -94,58 +103,149 @@ namespace NoughtsAndCrosses
 
         void changeArray(int xVal, int yVal, Panel picBox)
         {
-            if (win)
+            if (!isSinglePlayer)
             {
-                MessageBox.Show("Someone has won, you cannot carry on");
-            }
-            else if (checkPlayers())
-            {
-                if (boardList[xVal, yVal] == 0)
+                if (win)
                 {
-                    if (player1Using)
+                    MessageBox.Show("Someone has won, you cannot carry on");
+                }
+                else if (checkPlayers())
+                {
+                    if (boardList[xVal, yVal] == 0)
                     {
-                        boardList[xVal, yVal] = 1;
+                        if (player1Using)
+                        {
+                            boardList[xVal, yVal] = 1;
+                        }
+                        else
+                        {
+                            boardList[xVal, yVal] = 10;
+                        }
+                        changePicture(picBox);
+                        player1Using = !player1Using;
+                        whosGo();
+                        checkWin();
                     }
                     else
                     {
-                        boardList[xVal, yVal] = 10;
+                        Winnerlbl.Text = "You cant reuse a square";
                     }
-                    changePicture(picBox);
-                    player1Using = !player1Using;
-                    whosGo();
-                    checkWin();
+
+                    bool carryOn = false;
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int v = 0; v < 3; v++)
+                        {
+                            if (boardList[i, v] == 0)
+                            {
+                                carryOn = true;
+                                break;
+                            }
+                            if (carryOn)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!carryOn && !win) 
+                    {
+                        Winnerlbl.Text = "No one wins !";
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("You must type in the player names ...");
+                }
+            }
+            else
+            {
+                if (win)
+                {
+                    MessageBox.Show("The match has finished, you cannot carry on");
+                }
+                else if (!started)
+                {
+                    MessageBox.Show("You must press start");
+                }
+                else if (player1Using)
+                {
+                    bool tempHasPut = false;
+
+                    if (boardList[xVal, yVal] == 0)
+                    {
+                        tempHasPut = true;
+                        boardList[xVal, yVal] = 1;
+                        changePicture(picBox);
+                        player1Using = !player1Using;
+                        whosGo();
+                        checkWin();
+                    }
+                    else
+                    {
+                        Winnerlbl.Text = "You cant reuse a square";
+                    }
+
+                    bool carryOn = false;
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int v = 0; v < 3; v++)
+                        {
+                            if (boardList[i, v] == 0)
+                            {
+                                carryOn = true;
+                                break;
+                            }
+                            if (carryOn)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    if (tempHasPut && carryOn && !win)
+                    {
+                        computerWait.Enabled = true;
+                    }
+
+                    if (!carryOn && !win)
+                    {
+                        Winnerlbl.Text = "No one wins !";
+                    }
                 }
                 else
                 {
-                    Winnerlbl.Text = "You cant reuse a square";
-                }
+                    boardList[xVal, yVal] = 10;
+                    changePicture(picBox);
+                    player1Using = !player1Using;
+                    whosGo();
+                    checkWin(); //Check here
 
-                bool carryOn = false;
+                    bool carryOn = false;
 
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int v = 0; v < 3; v++)
+                    for (int i = 0; i < 3; i++)
                     {
-                        if (boardList[i, v] == 0)
+                        for (int v = 0; v < 3; v++)
                         {
-                            carryOn = true;
-                            break;
-                        }
-                        if (carryOn)
-                        {
-                            break;
+                            if (boardList[i, v] == 0)
+                            {
+                                carryOn = true;
+                                break;
+                            }
+                            if (carryOn)
+                            {
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (!carryOn) 
-                {
-                    Winnerlbl.Text = "No one wins !";
+                    if (!carryOn && !win)
+                    {
+                        Winnerlbl.Text = "No one wins !";
+                    }
                 }
-            }
-            else 
-            {
-                MessageBox.Show("You must type in the player names ...");
             }
         }
 
@@ -216,7 +316,15 @@ namespace NoughtsAndCrosses
                     pic3 = BotLeftpic;
                 }
 
-                Winnerlbl.Text = player1 + " wins!";
+                if (!isSinglePlayer)
+                {
+                    Winnerlbl.Text = player1 + " wins!";
+                }
+                else
+                {
+                    Winnerlbl.Text = "You win!";
+                }
+
                 win = true;
                 isPlayer1Winner = true;
                 winChangeColour.Enabled = true;
@@ -272,7 +380,15 @@ namespace NoughtsAndCrosses
                     pic3 = BotLeftpic;
                 }
 
-                Winnerlbl.Text = player2 + " wins!";
+                if (!isSinglePlayer)
+                {
+                    Winnerlbl.Text = player2 + " wins!";
+                }
+                else
+                {
+                    Winnerlbl.Text = "The computer wins!";
+                }
+                
                 win = true;
                 isPlayer1Winner = false;
                 winChangeColour.Enabled = true;
@@ -281,47 +397,143 @@ namespace NoughtsAndCrosses
 
         private void TopLeftpic_Click(object sender, EventArgs e)
         {
-            changeArray(0, 0, TopLeftpic);
+            if (!isSinglePlayer)
+            {
+                changeArray(0, 0, TopLeftpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(0, 0, TopLeftpic);
+                }
+            }
         }
 
         private void TopMidtpic_Click(object sender, EventArgs e)
         {
-            changeArray(0, 1, TopMidpic);
+            if (!isSinglePlayer)
+            {
+                changeArray(0, 1, TopMidpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(0, 1, TopMidpic);
+                }
+            }
         }
 
         private void TopRighttpic_Click(object sender, EventArgs e)
         {
-            changeArray(0, 2, TopRightpic);
+            if (!isSinglePlayer)
+            {
+                changeArray(0, 2, TopRightpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(0, 2, TopRightpic);
+                }
+            }
         }
 
         private void MidLeftpic_Click(object sender, EventArgs e)
         {
-            changeArray(1, 0, MidLeftpic);
+            
+            if (!isSinglePlayer)
+            {
+                changeArray(1, 0, MidLeftpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(1, 0, MidLeftpic);
+                }
+            }
         }
 
         private void MidMidpic_Click(object sender, EventArgs e)
         {
-            changeArray(1, 1, MidMidpic);
+            
+            if (!isSinglePlayer)
+            {
+                changeArray(1, 1, MidMidpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(1, 1, MidMidpic);
+                }
+            }
         }
 
         private void MidRightpic_Click(object sender, EventArgs e)
         {
-            changeArray(1, 2, MidRightpic);
+            
+            if (!isSinglePlayer)
+            {
+                changeArray(1, 2, MidRightpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(1, 2, MidRightpic);
+                }
+            }
         }
 
         private void BotLeftpic_Click(object sender, EventArgs e)
         {
-            changeArray(2, 0, BotLeftpic);
+            
+            if (!isSinglePlayer)
+            {
+                changeArray(2, 0, BotLeftpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(2, 0, BotLeftpic);
+                }
+            }
         }
 
         private void BotMidpic_Click(object sender, EventArgs e)
         {
-            changeArray(2, 1, BotMidpic);
+            
+            if (!isSinglePlayer)
+            {
+                changeArray(2, 1, BotMidpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(2, 1, BotMidpic);
+                }
+            }
         }
 
         private void BotRightpic_Click(object sender, EventArgs e)
         {
-            changeArray(2, 2, BotRightpic);
+            
+            if (!isSinglePlayer)
+            {
+                changeArray(2, 2, BotRightpic);
+            }
+            else
+            {
+                if (player1Using)
+                {
+                    changeArray(2, 2, BotRightpic);
+                }
+            }
         }
 
         private void drawingpnl_Paint(object sender, PaintEventArgs e)
@@ -338,17 +550,31 @@ namespace NoughtsAndCrosses
 
         private void startbtn_Click(object sender, EventArgs e)
         {
-            if (player1txt.Text == "" || player2txt.Text == "")
+            if (!isSinglePlayer)
             {
-                MessageBox.Show("You must type in the player names ...");
+                if (player1txt.Text == "" || player2txt.Text == "")
+                {
+                    MessageBox.Show("You must type in the player names ...");
+                }
+                else
+                {
+                    colourbtn.Enabled = false;
+                    startbtn.Enabled = false;
+                    player1 = player1txt.Text;
+                    player2 = player2txt.Text;
+                    choosePlayer();
+                }
             }
             else
             {
+                started = true;
                 colourbtn.Enabled = false;
                 startbtn.Enabled = false;
-                player1 = player1txt.Text;
-                player2 = player2txt.Text;
                 choosePlayer();
+                if (!player1Using)
+                {
+                    computerWait.Enabled = true;
+                }
             }
         }
 
@@ -366,6 +592,8 @@ namespace NoughtsAndCrosses
 
         private void restartbtn_Click(object sender, EventArgs e)
         {
+            started = false;
+            computerWait.Enabled = false;
             winChangeColour.Enabled = false;
             colourbtn.Enabled = true;
             startbtn.Enabled = true;
@@ -383,28 +611,59 @@ namespace NoughtsAndCrosses
 
         void choosePlayer() 
         {
-            int temp = rnd.Next(0,2);
-            if (temp == 0)
+            int temp = rnd.Next(0, 2);
+            if (!isSinglePlayer)
             {
-                player1Using = true;
-                Winnerlbl.Text = player1 + " goes first";
+                if (temp == 0)
+                {
+                    player1Using = true;
+                    Winnerlbl.Text = player1 + " goes first";
+                }
+                else
+                {
+                    player1Using = false;
+                    Winnerlbl.Text = player2 + " goes first";
+                }
             }
-            else 
+            else
             {
-                player1Using = false;
-                Winnerlbl.Text = player2 + " goes first";
+                if (temp == 0)
+                {
+                    player1Using = true;
+                    Winnerlbl.Text = "It is your go first";
+                }
+                else
+                {
+                    player1Using = false;
+                    Winnerlbl.Text = "It is the computer's go first";
+                    computerWait.Enabled = true;
+                }
             }
         }
 
         void whosGo() 
         {
-            if (player1Using)
+            if (!isSinglePlayer)
             {
-                Winnerlbl.Text = "It is " + player1 + "'s go";
+                if (player1Using)
+                {
+                    Winnerlbl.Text = "It is " + player1 + "'s go";
+                }
+                else
+                {
+                    Winnerlbl.Text = "It is " + player2 + "'s go";
+                }
             }
-            else 
+            else
             {
-                Winnerlbl.Text = "It is " + player2 + "'s go";
+                if (player1Using)
+                {
+                    Winnerlbl.Text = "It is your go";
+                }
+                else
+                {
+                    Winnerlbl.Text = "It is the computer's go";
+                }
             }
         }
 
@@ -422,6 +681,7 @@ namespace NoughtsAndCrosses
             if (colourModebox.SelectedIndex == 0)
             {
                 this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240 );
+                difflbl.ForeColor = Color.Black;
                 player1lbl.ForeColor = Color.Black;
                 player2lbl.ForeColor = Color.Black;
                 Winnerlbl.ForeColor = Color.Black;
@@ -433,6 +693,7 @@ namespace NoughtsAndCrosses
             else 
             {
                 this.BackColor = System.Drawing.Color.FromArgb(70, 70, 70);
+                difflbl.ForeColor = Color.White;
                 player1lbl.ForeColor = Color.White;
                 player2lbl.ForeColor = Color.White;
                 Winnerlbl.ForeColor = Color.White;
@@ -535,6 +796,124 @@ namespace NoughtsAndCrosses
                     g.DrawLine(p, 0, 80, 80, 0);
                 }
             }
+        }
+
+        private void computerWait_Tick(object sender, EventArgs e)
+        {
+            if (diffbox.SelectedIndex == 0)
+            {
+                easySingle();
+            }
+            else if (diffbox.SelectedIndex == 1)
+            {
+
+            }
+            else if (diffbox.SelectedIndex == 2)
+            {
+
+            }
+        }
+
+        void easySingle()
+        {
+            bool[,] tempUsed = { { true, true, true }, { true, true, true }, { true, true, true } };
+            int noFree = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int v = 0; v < 3; v++)
+                {
+                    if (boardList[i, v] == 0)
+                    {
+                        tempUsed[i, v] = false;
+                        noFree += 1;
+                    }
+                }
+            }
+            int tempRand = rnd.Next(0, noFree);
+            int x = 0;
+            int y = 0;
+            bool hasChosen = false;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int v = 0; v < 3; v++)
+                {
+                    if (tempUsed[i, v] == false)
+                    {
+
+                        if (tempRand == 0)
+                        {
+                            hasChosen = true;
+                            x = i;
+                            y = v;
+                            break;
+                        }
+                        else
+                        {
+                            tempRand -= 1;
+                        }
+                    }
+
+                }
+                if (hasChosen)
+                {
+                    break;
+                }
+            }
+            switch (x)
+            {
+                case 0:
+                    switch (y)
+                    {
+                        case 0:
+                            Console.WriteLine("1");
+                            changeArray(x, y, TopLeftpic);
+                            break;
+                        case 1:
+                            Console.WriteLine("2");
+                            changeArray(x, y, TopMidpic);
+                            break;
+                        case 2:
+                            Console.WriteLine("3");
+                            changeArray(x, y, TopRightpic);
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (y)
+                    {
+                        case 0:
+                            Console.WriteLine("4");
+                            changeArray(x, y, MidLeftpic);
+                            break;
+                        case 1:
+                            Console.WriteLine("5");
+                            changeArray(x, y, MidMidpic);
+                            break;
+                        case 2:
+                            Console.WriteLine("6");
+                            changeArray(x, y, MidRightpic);
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (y)
+                    {
+                        case 0:
+                            Console.WriteLine("7");
+                            changeArray(x, y, BotLeftpic);
+                            break;
+                        case 1:
+                            Console.WriteLine("8");
+                            changeArray(x, y, BotMidpic);
+                            break;
+                        case 2:
+                            Console.WriteLine("9");
+                            changeArray(x, y, BotRightpic);
+                            break;
+                    }
+                    break;
+            }
+            computerWait.Enabled = false;
         }
     }
 }

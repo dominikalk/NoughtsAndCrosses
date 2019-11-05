@@ -32,3 +32,16 @@ D:\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.csproj.Genera
 D:\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.csproj.CoreCompileInputs.cache
 D:\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.exe
 D:\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.pdb
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\bin\Debug\NoughtsAndCrosses.exe.config
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\bin\Debug\NoughtsAndCrosses.exe
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\bin\Debug\NoughtsAndCrosses.pdb
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.csprojAssemblyReference.cache
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.Form3.resources
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.Form1.resources
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.Form2.resources
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.Form4.resources
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.Properties.Resources.resources
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.csproj.GenerateResource.cache
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.csproj.CoreCompileInputs.cache
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.exe
+C:\Users\domin\Repositories\NoughtsAndCrosses\NoughtsAndCrosses\obj\Debug\NoughtsAndCrosses.pdb
