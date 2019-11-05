@@ -70,7 +70,9 @@
             // 
             // Winnerlbl
             // 
+            this.Winnerlbl.BackColor = System.Drawing.Color.Transparent;
             this.Winnerlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Winnerlbl.ForeColor = System.Drawing.Color.White;
             this.Winnerlbl.Location = new System.Drawing.Point(12, 287);
             this.Winnerlbl.Name = "Winnerlbl";
             this.Winnerlbl.Size = new System.Drawing.Size(254, 25);
@@ -96,7 +98,7 @@
             // 
             // BotRightpic
             // 
-            this.BotRightpic.BackColor = System.Drawing.Color.Silver;
+            this.BotRightpic.BackColor = System.Drawing.Color.Violet;
             this.BotRightpic.Location = new System.Drawing.Point(172, 172);
             this.BotRightpic.Name = "BotRightpic";
             this.BotRightpic.Size = new System.Drawing.Size(80, 80);
@@ -105,7 +107,7 @@
             // 
             // MidMidpic
             // 
-            this.MidMidpic.BackColor = System.Drawing.Color.Silver;
+            this.MidMidpic.BackColor = System.Drawing.Color.Violet;
             this.MidMidpic.Location = new System.Drawing.Point(86, 86);
             this.MidMidpic.Name = "MidMidpic";
             this.MidMidpic.Size = new System.Drawing.Size(80, 80);
@@ -114,7 +116,7 @@
             // 
             // BotMidpic
             // 
-            this.BotMidpic.BackColor = System.Drawing.Color.Silver;
+            this.BotMidpic.BackColor = System.Drawing.Color.Violet;
             this.BotMidpic.Location = new System.Drawing.Point(86, 172);
             this.BotMidpic.Name = "BotMidpic";
             this.BotMidpic.Size = new System.Drawing.Size(80, 80);
@@ -123,7 +125,7 @@
             // 
             // TopLeftpic
             // 
-            this.TopLeftpic.BackColor = System.Drawing.Color.Silver;
+            this.TopLeftpic.BackColor = System.Drawing.Color.Violet;
             this.TopLeftpic.Location = new System.Drawing.Point(0, 0);
             this.TopLeftpic.Name = "TopLeftpic";
             this.TopLeftpic.Size = new System.Drawing.Size(80, 80);
@@ -132,7 +134,7 @@
             // 
             // BotLeftpic
             // 
-            this.BotLeftpic.BackColor = System.Drawing.Color.Silver;
+            this.BotLeftpic.BackColor = System.Drawing.Color.Violet;
             this.BotLeftpic.Location = new System.Drawing.Point(0, 172);
             this.BotLeftpic.Name = "BotLeftpic";
             this.BotLeftpic.Size = new System.Drawing.Size(80, 80);
@@ -141,7 +143,7 @@
             // 
             // TopMidpic
             // 
-            this.TopMidpic.BackColor = System.Drawing.Color.Silver;
+            this.TopMidpic.BackColor = System.Drawing.Color.Violet;
             this.TopMidpic.Location = new System.Drawing.Point(86, 0);
             this.TopMidpic.Name = "TopMidpic";
             this.TopMidpic.Size = new System.Drawing.Size(80, 80);
@@ -150,7 +152,7 @@
             // 
             // MidRightpic
             // 
-            this.MidRightpic.BackColor = System.Drawing.Color.Silver;
+            this.MidRightpic.BackColor = System.Drawing.Color.Violet;
             this.MidRightpic.Location = new System.Drawing.Point(172, 86);
             this.MidRightpic.Name = "MidRightpic";
             this.MidRightpic.Size = new System.Drawing.Size(80, 80);
@@ -159,7 +161,7 @@
             // 
             // TopRightpic
             // 
-            this.TopRightpic.BackColor = System.Drawing.Color.Silver;
+            this.TopRightpic.BackColor = System.Drawing.Color.Violet;
             this.TopRightpic.Location = new System.Drawing.Point(172, 0);
             this.TopRightpic.Name = "TopRightpic";
             this.TopRightpic.Size = new System.Drawing.Size(80, 80);
@@ -168,7 +170,7 @@
             // 
             // MidLeftpic
             // 
-            this.MidLeftpic.BackColor = System.Drawing.Color.Silver;
+            this.MidLeftpic.BackColor = System.Drawing.Color.Violet;
             this.MidLeftpic.Location = new System.Drawing.Point(0, 86);
             this.MidLeftpic.Name = "MidLeftpic";
             this.MidLeftpic.Size = new System.Drawing.Size(80, 80);
@@ -185,6 +187,8 @@
             // player1lbl
             // 
             this.player1lbl.AutoSize = true;
+            this.player1lbl.BackColor = System.Drawing.Color.Transparent;
+            this.player1lbl.ForeColor = System.Drawing.Color.White;
             this.player1lbl.Location = new System.Drawing.Point(305, 142);
             this.player1lbl.Name = "player1lbl";
             this.player1lbl.Size = new System.Drawing.Size(79, 13);
@@ -194,6 +198,8 @@
             // player2lbl
             // 
             this.player2lbl.AutoSize = true;
+            this.player2lbl.BackColor = System.Drawing.Color.Transparent;
+            this.player2lbl.ForeColor = System.Drawing.Color.Black;
             this.player2lbl.Location = new System.Drawing.Point(305, 189);
             this.player2lbl.Name = "player2lbl";
             this.player2lbl.Size = new System.Drawing.Size(79, 13);
@@ -209,8 +215,8 @@
             // 
             // startbtn
             // 
-            this.startbtn.BackColor = System.Drawing.Color.Transparent;
-            this.startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startbtn.BackColor = System.Drawing.Color.Violet;
+            this.startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.startbtn.ForeColor = System.Drawing.Color.Black;
             this.startbtn.Location = new System.Drawing.Point(310, 12);
             this.startbtn.Name = "startbtn";
@@ -222,8 +228,8 @@
             // 
             // restartbtn
             // 
-            this.restartbtn.BackColor = System.Drawing.Color.Transparent;
-            this.restartbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.restartbtn.BackColor = System.Drawing.Color.Violet;
+            this.restartbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.restartbtn.Location = new System.Drawing.Point(309, 41);
             this.restartbtn.Name = "restartbtn";
             this.restartbtn.Size = new System.Drawing.Size(113, 23);
@@ -234,8 +240,8 @@
             // 
             // menubtn
             // 
-            this.menubtn.BackColor = System.Drawing.Color.Transparent;
-            this.menubtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menubtn.BackColor = System.Drawing.Color.Violet;
+            this.menubtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.menubtn.Location = new System.Drawing.Point(310, 70);
             this.menubtn.Name = "menubtn";
             this.menubtn.Size = new System.Drawing.Size(112, 23);
@@ -246,7 +252,9 @@
             // 
             // colourModebox
             // 
+            this.colourModebox.BackColor = System.Drawing.Color.Violet;
             this.colourModebox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.colourModebox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourModebox.FormattingEnabled = true;
             this.colourModebox.Items.AddRange(new object[] {
             "Light Mode",
@@ -255,12 +263,13 @@
             this.colourModebox.Name = "colourModebox";
             this.colourModebox.Size = new System.Drawing.Size(113, 21);
             this.colourModebox.TabIndex = 20;
+            this.colourModebox.Visible = false;
             this.colourModebox.SelectedIndexChanged += new System.EventHandler(this.colourModebox_SelectedIndexChanged);
             // 
             // colourbtn
             // 
-            this.colourbtn.BackColor = System.Drawing.Color.Transparent;
-            this.colourbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colourbtn.BackColor = System.Drawing.Color.Violet;
+            this.colourbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.colourbtn.Location = new System.Drawing.Point(309, 99);
             this.colourbtn.Name = "colourbtn";
             this.colourbtn.Size = new System.Drawing.Size(112, 23);
@@ -292,7 +301,9 @@
             // 
             // diffbox
             // 
+            this.diffbox.BackColor = System.Drawing.Color.Violet;
             this.diffbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.diffbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.diffbox.FormattingEnabled = true;
             this.diffbox.Items.AddRange(new object[] {
             "Easy",
@@ -307,6 +318,8 @@
             // difflbl
             // 
             this.difflbl.AutoSize = true;
+            this.difflbl.BackColor = System.Drawing.Color.Transparent;
+            this.difflbl.ForeColor = System.Drawing.Color.White;
             this.difflbl.Location = new System.Drawing.Point(306, 143);
             this.difflbl.Name = "difflbl";
             this.difflbl.Size = new System.Drawing.Size(50, 13);
@@ -324,6 +337,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(436, 323);
             this.Controls.Add(this.difflbl);
             this.Controls.Add(this.diffbox);
@@ -340,6 +354,7 @@
             this.Controls.Add(this.player1txt);
             this.Controls.Add(this.drawingpnl);
             this.Controls.Add(this.Winnerlbl);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
             this.Text = "Dom\'s Noughts and Crosses";

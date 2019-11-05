@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.singlePlayerbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.twoPlayerbtn = new System.Windows.Forms.Button();
@@ -35,19 +36,24 @@
             // 
             // singlePlayerbtn
             // 
-            this.singlePlayerbtn.Location = new System.Drawing.Point(144, 73);
+            this.singlePlayerbtn.BackColor = System.Drawing.Color.Violet;
+            this.singlePlayerbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.singlePlayerbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.singlePlayerbtn.Location = new System.Drawing.Point(191, 98);
             this.singlePlayerbtn.Name = "singlePlayerbtn";
-            this.singlePlayerbtn.Size = new System.Drawing.Size(117, 23);
+            this.singlePlayerbtn.Size = new System.Drawing.Size(117, 36);
             this.singlePlayerbtn.TabIndex = 0;
             this.singlePlayerbtn.Text = "Single Player";
-            this.singlePlayerbtn.UseVisualStyleBackColor = true;
+            this.singlePlayerbtn.UseVisualStyleBackColor = false;
             this.singlePlayerbtn.Click += new System.EventHandler(this.singlePlayerbtn_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(59, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(383, 42);
             this.label2.TabIndex = 2;
@@ -55,19 +61,23 @@
             // 
             // twoPlayerbtn
             // 
-            this.twoPlayerbtn.Location = new System.Drawing.Point(144, 102);
+            this.twoPlayerbtn.BackColor = System.Drawing.Color.Violet;
+            this.twoPlayerbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.twoPlayerbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.twoPlayerbtn.Location = new System.Drawing.Point(191, 153);
             this.twoPlayerbtn.Name = "twoPlayerbtn";
-            this.twoPlayerbtn.Size = new System.Drawing.Size(117, 23);
+            this.twoPlayerbtn.Size = new System.Drawing.Size(117, 37);
             this.twoPlayerbtn.TabIndex = 3;
             this.twoPlayerbtn.Text = "Two Player";
-            this.twoPlayerbtn.UseVisualStyleBackColor = true;
+            this.twoPlayerbtn.UseVisualStyleBackColor = false;
             this.twoPlayerbtn.Click += new System.EventHandler(this.twoPlayerbtn_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 150);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(493, 243);
             this.Controls.Add(this.twoPlayerbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.singlePlayerbtn);

@@ -540,7 +540,7 @@ namespace NoughtsAndCrosses
         {
             System.Drawing.Graphics g;
             g = drawingpnl.CreateGraphics();
-            System.Drawing.Pen p = new System.Drawing.Pen(System.Drawing.Color.Black);
+            System.Drawing.Pen p = new System.Drawing.Pen(System.Drawing.Color.Purple);
             p.Width = 5;
             g.DrawRectangle(p, 81, 0, 3, 250);
             g.DrawRectangle(p, 168, 0, 3, 250);
@@ -680,30 +680,30 @@ namespace NoughtsAndCrosses
 
         private void colourModebox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (colourModebox.SelectedIndex == 0)
-            {
-                this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
-                difflbl.ForeColor = Color.Black;
-                player1lbl.ForeColor = Color.Black;
-                player2lbl.ForeColor = Color.Black;
-                Winnerlbl.ForeColor = Color.Black;
-                startbtn.BackColor = Color.Transparent;
-                restartbtn.BackColor = Color.Transparent;
-                colourbtn.BackColor = Color.Transparent;
-                menubtn.BackColor = Color.Transparent;
-            }
-            else
-            {
-                this.BackColor = System.Drawing.Color.FromArgb(70, 70, 70);
-                difflbl.ForeColor = Color.White;
-                player1lbl.ForeColor = Color.White;
-                player2lbl.ForeColor = Color.White;
-                Winnerlbl.ForeColor = Color.White;
-                startbtn.BackColor = Color.DarkGray;
-                restartbtn.BackColor = Color.DarkGray;
-                colourbtn.BackColor = Color.DarkGray;
-                menubtn.BackColor = Color.DarkGray;
-            }
+            //if (colourModebox.SelectedIndex == 0)
+            //{
+            //    this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
+            //    difflbl.ForeColor = Color.Black;
+            //    player1lbl.ForeColor = Color.Black;
+            //    player2lbl.ForeColor = Color.Black;
+            //    Winnerlbl.ForeColor = Color.Black;
+            //    startbtn.BackColor = Color.Transparent;
+            //    restartbtn.BackColor = Color.Transparent;
+            //    colourbtn.BackColor = Color.Transparent;
+            //    menubtn.BackColor = Color.Transparent;
+            //}
+            //else
+            //{
+            //    this.BackColor = System.Drawing.Color.FromArgb(70, 70, 70);
+            //    difflbl.ForeColor = Color.White;
+            //    player1lbl.ForeColor = Color.White;
+            //    player2lbl.ForeColor = Color.White;
+            //    Winnerlbl.ForeColor = Color.White;
+            //    startbtn.BackColor = Color.DarkGray;
+            //    restartbtn.BackColor = Color.DarkGray;
+            //    colourbtn.BackColor = Color.DarkGray;
+            //    menubtn.BackColor = Color.DarkGray;
+            //}
         }
 
         private void colourbtn_Click(object sender, EventArgs e)
