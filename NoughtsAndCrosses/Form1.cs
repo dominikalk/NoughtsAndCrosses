@@ -19,8 +19,8 @@ namespace NoughtsAndCrosses
         bool player1Using;
         bool isPlayer1Winner;
 
-        int[,] boardList = new int[,] {{0,0,0,0},{0,0,0,0},{0,0,0,0}, {0,0,0,0}};
-        int[,] locations = new int[,] { { 0, 0 }, { 0, 100 }, {0, 200}, {100, 0}, {100, 100}, {100, 200}, {200, 0}, {200, 100}, {200, 200}};
+        int[,] boardList = new int[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+        int[,] locations = new int[,] { { 0, 0 }, { 0, 100 }, { 0, 200 }, { 100, 0 }, { 100, 100 }, { 100, 200 }, { 200, 0 }, { 200, 100 }, { 200, 200 } };
 
         string player1;
         string player2;
@@ -31,7 +31,7 @@ namespace NoughtsAndCrosses
         Panel pic1;
         Panel pic2;
         Panel pic3;
-        Color[] winColours = {Color.Red, Color.Blue, Color.Green, Color.Purple, Color.Orange, Color.Pink};
+        Color[] winColours = { Color.Red, Color.Blue, Color.Green, Color.Purple, Color.Orange, Color.Pink };
         int winColour;
 
         bool win;
@@ -65,7 +65,7 @@ namespace NoughtsAndCrosses
         }
           */
 
-        public void singlePlayer() 
+        public void singlePlayer()
         {
             started = false;
             player1Using = true;
@@ -81,7 +81,7 @@ namespace NoughtsAndCrosses
             player2txt.Visible = false;
         }
 
-        void changePicture(Panel pictureBox) 
+        void changePicture(Panel pictureBox)
         {
             System.Drawing.Graphics g;
             g = pictureBox.CreateGraphics();
@@ -149,12 +149,12 @@ namespace NoughtsAndCrosses
                         }
                     }
 
-                    if (!carryOn && !win) 
+                    if (!carryOn && !win)
                     {
                         Winnerlbl.Text = "No one wins !";
                     }
                 }
-                else 
+                else
                 {
                     MessageBox.Show("You must type in the player names ...");
                 }
@@ -249,7 +249,7 @@ namespace NoughtsAndCrosses
             }
         }
 
-        void checkWin() 
+        void checkWin()
         {
             int tempDiagonal1 = 0;
             int tempDiagonal2 = 0;
@@ -265,15 +265,15 @@ namespace NoughtsAndCrosses
             tempDiagonal1 = boardList[0, 0] + boardList[1, 1] + boardList[2, 2];
             tempDiagonal2 = boardList[2, 0] + boardList[1, 1] + boardList[0, 2];
 
-            if (boardList[0, 3] == 3 || boardList[1, 3] == 3 || boardList[2, 3] == 3 || boardList[3, 0] == 3 || boardList[3, 1] == 3 || boardList[3, 2] == 3 || tempDiagonal1 == 3 || tempDiagonal2 == 3) 
+            if (boardList[0, 3] == 3 || boardList[1, 3] == 3 || boardList[2, 3] == 3 || boardList[3, 0] == 3 || boardList[3, 1] == 3 || boardList[3, 2] == 3 || tempDiagonal1 == 3 || tempDiagonal2 == 3)
             {
-                if(boardList[0, 3] == 3)
+                if (boardList[0, 3] == 3)
                 {
                     pic1 = TopLeftpic;
                     pic2 = TopMidpic;
                     pic3 = TopRightpic;
                 }
-                else if (boardList[1, 3] == 3 )
+                else if (boardList[1, 3] == 3)
                 {
                     pic1 = MidLeftpic;
                     pic2 = MidMidpic;
@@ -388,7 +388,7 @@ namespace NoughtsAndCrosses
                 {
                     Winnerlbl.Text = "The computer wins!";
                 }
-                
+
                 win = true;
                 isPlayer1Winner = false;
                 winChangeColour.Enabled = true;
@@ -442,7 +442,7 @@ namespace NoughtsAndCrosses
 
         private void MidLeftpic_Click(object sender, EventArgs e)
         {
-            
+
             if (!isSinglePlayer)
             {
                 changeArray(1, 0, MidLeftpic);
@@ -458,7 +458,7 @@ namespace NoughtsAndCrosses
 
         private void MidMidpic_Click(object sender, EventArgs e)
         {
-            
+
             if (!isSinglePlayer)
             {
                 changeArray(1, 1, MidMidpic);
@@ -474,7 +474,7 @@ namespace NoughtsAndCrosses
 
         private void MidRightpic_Click(object sender, EventArgs e)
         {
-            
+
             if (!isSinglePlayer)
             {
                 changeArray(1, 2, MidRightpic);
@@ -490,7 +490,7 @@ namespace NoughtsAndCrosses
 
         private void BotLeftpic_Click(object sender, EventArgs e)
         {
-            
+
             if (!isSinglePlayer)
             {
                 changeArray(2, 0, BotLeftpic);
@@ -506,7 +506,7 @@ namespace NoughtsAndCrosses
 
         private void BotMidpic_Click(object sender, EventArgs e)
         {
-            
+
             if (!isSinglePlayer)
             {
                 changeArray(2, 1, BotMidpic);
@@ -522,7 +522,7 @@ namespace NoughtsAndCrosses
 
         private void BotRightpic_Click(object sender, EventArgs e)
         {
-            
+
             if (!isSinglePlayer)
             {
                 changeArray(2, 2, BotRightpic);
@@ -567,6 +567,7 @@ namespace NoughtsAndCrosses
             }
             else
             {
+                diffbox.Enabled = false;
                 started = true;
                 colourbtn.Enabled = false;
                 startbtn.Enabled = false;
@@ -578,13 +579,13 @@ namespace NoughtsAndCrosses
             }
         }
 
-        bool checkPlayers() 
+        bool checkPlayers()
         {
             if (player1 == "" || player2 == "")
             {
                 return false;
             }
-            else 
+            else
             {
                 return true;
             }
@@ -592,6 +593,7 @@ namespace NoughtsAndCrosses
 
         private void restartbtn_Click(object sender, EventArgs e)
         {
+            diffbox.Enabled = true;
             started = false;
             computerWait.Enabled = false;
             winChangeColour.Enabled = false;
@@ -606,10 +608,10 @@ namespace NoughtsAndCrosses
             Refresh();
             locations = new int[,] { { 0, 0 }, { 0, 100 }, { 0, 200 }, { 100, 0 }, { 100, 100 }, { 100, 200 }, { 200, 0 }, { 200, 100 }, { 200, 200 } };
             boardList = new int[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
-            player1Using = true; 
+            player1Using = true;
         }
 
-        void choosePlayer() 
+        void choosePlayer()
         {
             int temp = rnd.Next(0, 2);
             if (!isSinglePlayer)
@@ -641,7 +643,7 @@ namespace NoughtsAndCrosses
             }
         }
 
-        void whosGo() 
+        void whosGo()
         {
             if (!isSinglePlayer)
             {
@@ -680,7 +682,7 @@ namespace NoughtsAndCrosses
         {
             if (colourModebox.SelectedIndex == 0)
             {
-                this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240 );
+                this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
                 difflbl.ForeColor = Color.Black;
                 player1lbl.ForeColor = Color.Black;
                 player2lbl.ForeColor = Color.Black;
@@ -690,7 +692,7 @@ namespace NoughtsAndCrosses
                 colourbtn.BackColor = Color.Transparent;
                 menubtn.BackColor = Color.Transparent;
             }
-            else 
+            else
             {
                 this.BackColor = System.Drawing.Color.FromArgb(70, 70, 70);
                 difflbl.ForeColor = Color.White;
@@ -713,7 +715,7 @@ namespace NoughtsAndCrosses
             form4.form1 = this;
             form4.singlePlayer();
 
-            if (colourModebox.SelectedIndex == 1) 
+            if (colourModebox.SelectedIndex == 1)
             {
                 form4.darkMode();
             }
@@ -721,7 +723,7 @@ namespace NoughtsAndCrosses
             form4.Show();
         }
 
-        public void setPanelColours() 
+        public void setPanelColours()
         {
             System.Drawing.Graphics g;
             g = player1Colourpnl.CreateGraphics();
@@ -763,7 +765,7 @@ namespace NoughtsAndCrosses
             {
                 winColour += 1;
             }
-            else 
+            else
             {
                 winColour = 0;
             }
@@ -806,16 +808,17 @@ namespace NoughtsAndCrosses
             }
             else if (diffbox.SelectedIndex == 1)
             {
-
+                mediumSingle();
             }
             else if (diffbox.SelectedIndex == 2)
             {
-
+                hardSingle();
             }
         }
 
         void easySingle()
         {
+            // Finds free spaces
             bool[,] tempUsed = { { true, true, true }, { true, true, true }, { true, true, true } };
             int noFree = 0;
             for (int i = 0; i < 3; i++)
@@ -829,6 +832,8 @@ namespace NoughtsAndCrosses
                     }
                 }
             }
+
+            // Choses random free position
             int tempRand = rnd.Next(0, noFree);
             int x = 0;
             int y = 0;
@@ -859,21 +864,20 @@ namespace NoughtsAndCrosses
                     break;
                 }
             }
+
+            // Calls changeArray for that position
             switch (x)
             {
                 case 0:
                     switch (y)
                     {
                         case 0:
-                            Console.WriteLine("1");
                             changeArray(x, y, TopLeftpic);
                             break;
                         case 1:
-                            Console.WriteLine("2");
                             changeArray(x, y, TopMidpic);
                             break;
                         case 2:
-                            Console.WriteLine("3");
                             changeArray(x, y, TopRightpic);
                             break;
                     }
@@ -882,15 +886,12 @@ namespace NoughtsAndCrosses
                     switch (y)
                     {
                         case 0:
-                            Console.WriteLine("4");
                             changeArray(x, y, MidLeftpic);
                             break;
                         case 1:
-                            Console.WriteLine("5");
                             changeArray(x, y, MidMidpic);
                             break;
                         case 2:
-                            Console.WriteLine("6");
                             changeArray(x, y, MidRightpic);
                             break;
                     }
@@ -899,15 +900,548 @@ namespace NoughtsAndCrosses
                     switch (y)
                     {
                         case 0:
-                            Console.WriteLine("7");
                             changeArray(x, y, BotLeftpic);
                             break;
                         case 1:
-                            Console.WriteLine("8");
                             changeArray(x, y, BotMidpic);
                             break;
                         case 2:
-                            Console.WriteLine("9");
+                            changeArray(x, y, BotRightpic);
+                            break;
+                    }
+                    break;
+            }
+            computerWait.Enabled = false;
+        }
+
+        int virtualCheckWin(int x, int y, bool tryingWin, int[,] arrayGiven)
+        {
+            // 0 = nothing
+            // 1 = player would have won
+            // 2 = player would have lost
+
+            //int[,] tempVirtualArray = new boardList;
+
+            int[,] tempVirtualArray = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+            for (int i = 0; i < 4; i++)
+            {
+                for (int v = 0; v < 4; v++)
+                {
+                    tempVirtualArray[i, v] = arrayGiven[i, v];
+                }
+            }
+
+            if (tryingWin)
+            {
+                tempVirtualArray[x, y] = 10;
+            }
+            else
+            {
+                tempVirtualArray[x, y] = 1;
+            }
+
+            Console.WriteLine("Arrays");
+            Console.WriteLine(boardList[x, y]);
+            Console.WriteLine(tempVirtualArray[x, y]);
+
+            int tempDiagonal1 = 0;
+            int tempDiagonal2 = 0;
+
+            tempVirtualArray[0, 3] = tempVirtualArray[0, 0] + tempVirtualArray[0, 1] + tempVirtualArray[0, 2];
+            tempVirtualArray[1, 3] = tempVirtualArray[1, 0] + tempVirtualArray[1, 1] + tempVirtualArray[1, 2];
+            tempVirtualArray[2, 3] = tempVirtualArray[2, 0] + tempVirtualArray[2, 1] + tempVirtualArray[2, 2];
+
+            tempVirtualArray[3, 0] = tempVirtualArray[0, 0] + tempVirtualArray[1, 0] + tempVirtualArray[2, 0];
+            tempVirtualArray[3, 1] = tempVirtualArray[0, 1] + tempVirtualArray[1, 1] + tempVirtualArray[2, 1];
+            tempVirtualArray[3, 2] = tempVirtualArray[0, 2] + tempVirtualArray[1, 2] + tempVirtualArray[2, 2];
+
+            tempDiagonal1 = tempVirtualArray[0, 0] + tempVirtualArray[1, 1] + tempVirtualArray[2, 2];
+            tempDiagonal2 = tempVirtualArray[2, 0] + tempVirtualArray[1, 1] + tempVirtualArray[0, 2];
+
+            if (tempVirtualArray[0, 3] == 3 || tempVirtualArray[1, 3] == 3 || tempVirtualArray[2, 3] == 3 || tempVirtualArray[3, 0] == 3 || tempVirtualArray[3, 1] == 3 || tempVirtualArray[3, 2] == 3 || tempDiagonal1 == 3 || tempDiagonal2 == 3)
+            {
+                if (tempVirtualArray[0, 3] == 3)
+                {
+                    return (1);
+                }
+                else if (tempVirtualArray[1, 3] == 3)
+                {
+                    return (1);
+                }
+                else if (tempVirtualArray[2, 3] == 3)
+                {
+                    return (1);
+                }
+                else if (tempVirtualArray[3, 0] == 3)
+                {
+                    return (1);
+                }
+                else if (tempVirtualArray[3, 1] == 3)
+                {
+                    return (1);
+                }
+                else if (tempVirtualArray[3, 2] == 3)
+                {
+                    return (1);
+                }
+                else if (tempDiagonal1 == 3)
+                {
+                    return (1);
+                }
+                else if (tempDiagonal2 == 3)
+                {
+                    return (1);
+                }
+                else
+                {
+                    return (0);
+                }
+            }
+            else if (tempVirtualArray[0, 3] == 30 || tempVirtualArray[1, 3] == 30 || tempVirtualArray[2, 3] == 30 || tempVirtualArray[3, 0] == 30 || tempVirtualArray[3, 1] == 30 || tempVirtualArray[3, 2] == 30 || tempDiagonal1 == 30 || tempDiagonal2 == 30)
+            {
+                if (tempVirtualArray[0, 3] == 30)
+                {
+                    return (2);
+                }
+                else if (tempVirtualArray[1, 3] == 30)
+                {
+                    return (2);
+                }
+                else if (tempVirtualArray[2, 3] == 30)
+                {
+                    return (2);
+                }
+                else if (tempVirtualArray[3, 0] == 30)
+                {
+                    return (2);
+                }
+                else if (tempVirtualArray[3, 1] == 30)
+                {
+                    return (2);
+                }
+                else if (tempVirtualArray[3, 2] == 30)
+                {
+                    return (2);
+                }
+                else if (tempDiagonal1 == 30)
+                {
+                    return (2);
+                }
+                else if (tempDiagonal2 == 30)
+                {
+                    return (2);
+                }
+                else
+                {
+                    return (0);
+                }
+            }
+            else
+            {
+                return (0);
+            }
+
+        }
+
+        void mediumSingle()
+        {
+            // Finds free spaces
+            bool[,] tempUsed = { { true, true, true }, { true, true, true }, { true, true, true } };
+            int noFree = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int v = 0; v < 3; v++)
+                {
+                    if (boardList[i, v] == 0)
+                    {
+                        tempUsed[i, v] = false;
+                        noFree += 1;
+                    }
+                }
+            }
+
+            int tempRand = rnd.Next(0, noFree); // only if will get to random
+            int x = 0;
+            int y = 0;
+            bool hasChosen = false;
+
+            // check if can win
+            for (int i = 0; i < 3; i++)
+            {
+                for (int v = 0; v < 3; v++)
+                {
+                    if (tempUsed[i, v] == false)
+                    {
+                        if (virtualCheckWin(i, v, true, boardList) == 2)
+                        {
+                            x = i;
+                            y = v;
+                            hasChosen = true;
+                            break;
+                        }
+                    }
+                }
+                if (hasChosen)
+                {
+                    break;
+                }
+            }
+
+
+            // check if would have lost
+            if (!hasChosen)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int v = 0; v < 3; v++)
+                    {
+                        if (tempUsed[i, v] == false)
+                        {
+                            if (virtualCheckWin(i, v, false, boardList) == 1)
+                            {
+                                x = i;
+                                y = v;
+                                hasChosen = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (hasChosen)
+                    {
+                        break;
+                    }
+                }
+            }
+
+
+            // Random
+            if (!hasChosen)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int v = 0; v < 3; v++)
+                    {
+                        if (tempUsed[i, v] == false)
+                        {
+
+                            if (tempRand == 0)
+                            {
+                                hasChosen = true;
+                                x = i;
+                                y = v;
+                                break;
+                            }
+                            else
+                            {
+                                tempRand -= 1;
+                            }
+                        }
+
+                    }
+                    if (hasChosen)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            switch (x)
+            {
+                case 0:
+                    switch (y)
+                    {
+                        case 0:
+                            changeArray(x, y, TopLeftpic);
+                            break;
+                        case 1:
+                            changeArray(x, y, TopMidpic);
+                            break;
+                        case 2:
+                            changeArray(x, y, TopRightpic);
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (y)
+                    {
+                        case 0:
+                            changeArray(x, y, MidLeftpic);
+                            break;
+                        case 1:
+                            changeArray(x, y, MidMidpic);
+                            break;
+                        case 2:
+                            changeArray(x, y, MidRightpic);
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (y)
+                    {
+                        case 0:
+                            changeArray(x, y, BotLeftpic);
+                            break;
+                        case 1:
+                            changeArray(x, y, BotMidpic);
+                            break;
+                        case 2:
+                            changeArray(x, y, BotRightpic);
+                            break;
+                    }
+                    break;
+            }
+            computerWait.Enabled = false;
+        }
+
+        void hardSingle()
+        {
+            // Finds free spaces
+            bool[,] tempUsed = { { true, true, true }, { true, true, true }, { true, true, true } };
+            int noFree = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int v = 0; v < 3; v++)
+                {
+                    if (boardList[i, v] == 0)
+                    {
+                        tempUsed[i, v] = false;
+                        noFree += 1;
+                    }
+                }
+            }
+
+            int tempRand = rnd.Next(0, noFree); // only if will get to random
+            int x = 0;
+            int y = 0;
+            bool hasChosen = false;
+
+            // check if can win
+            for (int i = 0; i < 3; i++)
+            {
+                for (int v = 0; v < 3; v++)
+                {
+                    if (tempUsed[i, v] == false)
+                    {
+                        if (virtualCheckWin(i, v, true, boardList) == 2)
+                        {
+                            x = i;
+                            y = v;
+                            hasChosen = true;
+                            break;
+                        }
+                    }
+                }
+                if (hasChosen)
+                {
+                    break;
+                }
+            }
+
+            // check if would have lost
+            if (!hasChosen)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int v = 0; v < 3; v++)
+                    {
+                        if (tempUsed[i, v] == false)
+                        {
+                            if (virtualCheckWin(i, v, false, boardList) == 1)
+                            {
+                                x = i;
+                                y = v;
+                                hasChosen = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (hasChosen)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (!hasChosen)
+            {
+                if (boardList[1, 1] == 0)
+                {
+                    x = 1;
+                    y = 1;
+                    hasChosen = true;
+                }
+                else if (boardList[1, 1] == 10)
+                {
+                    //TopMid
+                    if (boardList[1, 0] == 1)
+                    {
+                        if (boardList[0, 2] == 0)
+                        {
+                            x = 0;
+                            y = 2;
+                            hasChosen = true;
+                        }
+                        else if (boardList[2, 2] == 0)
+                        {
+                            x = 2;
+                            y = 2;
+                            hasChosen = true;
+                        }
+                    }
+                    // Mid Right
+                    else if (boardList[2, 1] == 1)
+                    {
+                        if (boardList[0, 0] == 0)
+                        {
+                            x = 0;
+                            y = 0;
+                            hasChosen = true;
+                        }
+                        else if (boardList[0, 2] == 0)
+                        {
+                            x = 0;
+                            y = 2;
+                            hasChosen = true;
+                        }
+                    }
+                    // Bot Mid
+                    else if (boardList[1, 2] == 1)
+                    {
+                        if (boardList[0, 0] == 0)
+                        {
+                            x = 0;
+                            y = 0;
+                            hasChosen = true;
+                        }
+                        else if (boardList[2, 0] == 0)
+                        {
+                            x = 2;
+                            y = 0;
+                            hasChosen = true;
+                        }
+                    }
+
+                    // Mid left
+                    else if (boardList[0, 1] == 1)
+                    {
+                        if (boardList[2, 0] == 0)
+                        {
+                            x = 2;
+                            y = 0;
+                            hasChosen = true;
+                        }
+                        else if (boardList[2, 2] == 0)
+                        {
+                            x = 2;
+                            y = 2;
+                            hasChosen = true;
+                        }
+                    }
+                }
+                else if (boardList[1, 1] == 1)
+                {
+                    if (boardList[0, 0] == 10 || boardList[2, 0] == 10 || boardList[2, 2] == 10 || boardList[0, 2] == 10)
+                    {
+
+                    }
+                    else if (boardList[0, 0] == 0)
+                    {
+                        x = 2;
+                        y = 0;
+                        hasChosen = true;
+                    }
+                    else if (boardList[2, 0] == 0)
+                    {
+                        x = 2;
+                        y = 0;
+                        hasChosen = true;
+                    }
+                    else if (boardList[2, 2] == 0)
+                    {
+                        x = 2;
+                        y = 2;
+                        hasChosen = true;
+                    }
+                    else if (boardList[0, 2] == 0)
+                    {
+                        x = 0;
+                        y = 2;
+                        hasChosen = true;
+                    }
+                }
+            }
+
+            // Random
+            if (!hasChosen)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int v = 0; v < 3; v++)
+                    {
+                        if (tempUsed[i, v] == false)
+                        {
+
+                            if (tempRand == 0)
+                            {
+                                hasChosen = true;
+                                x = i;
+                                y = v;
+                                break;
+                            }
+                            else
+                            {
+                                tempRand -= 1;
+                            }
+                        }
+
+                    }
+                    if (hasChosen)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            switch (x)
+            {
+                case 0:
+                    switch (y)
+                    {
+                        case 0:
+                            changeArray(x, y, TopLeftpic);
+                            break;
+                        case 1:
+                            changeArray(x, y, TopMidpic);
+                            break;
+                        case 2:
+                            changeArray(x, y, TopRightpic);
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (y)
+                    {
+                        case 0:
+                            changeArray(x, y, MidLeftpic);
+                            break;
+                        case 1:
+                            changeArray(x, y, MidMidpic);
+                            break;
+                        case 2:
+                            changeArray(x, y, MidRightpic);
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (y)
+                    {
+                        case 0:
+                            changeArray(x, y, BotLeftpic);
+                            break;
+                        case 1:
+                            changeArray(x, y, BotMidpic);
+                            break;
+                        case 2:
                             changeArray(x, y, BotRightpic);
                             break;
                     }

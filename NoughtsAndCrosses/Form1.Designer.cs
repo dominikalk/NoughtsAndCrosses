@@ -177,7 +177,7 @@
             // 
             // player1txt
             // 
-            this.player1txt.Location = new System.Drawing.Point(309, 28);
+            this.player1txt.Location = new System.Drawing.Point(308, 158);
             this.player1txt.Name = "player1txt";
             this.player1txt.Size = new System.Drawing.Size(113, 20);
             this.player1txt.TabIndex = 11;
@@ -185,7 +185,7 @@
             // player1lbl
             // 
             this.player1lbl.AutoSize = true;
-            this.player1lbl.Location = new System.Drawing.Point(306, 12);
+            this.player1lbl.Location = new System.Drawing.Point(305, 142);
             this.player1lbl.Name = "player1lbl";
             this.player1lbl.Size = new System.Drawing.Size(79, 13);
             this.player1lbl.TabIndex = 12;
@@ -194,7 +194,7 @@
             // player2lbl
             // 
             this.player2lbl.AutoSize = true;
-            this.player2lbl.Location = new System.Drawing.Point(306, 59);
+            this.player2lbl.Location = new System.Drawing.Point(305, 189);
             this.player2lbl.Name = "player2lbl";
             this.player2lbl.Size = new System.Drawing.Size(79, 13);
             this.player2lbl.TabIndex = 13;
@@ -202,7 +202,7 @@
             // 
             // player2txt
             // 
-            this.player2txt.Location = new System.Drawing.Point(309, 75);
+            this.player2txt.Location = new System.Drawing.Point(308, 205);
             this.player2txt.Name = "player2txt";
             this.player2txt.Size = new System.Drawing.Size(113, 20);
             this.player2txt.TabIndex = 14;
@@ -212,7 +212,7 @@
             this.startbtn.BackColor = System.Drawing.Color.Transparent;
             this.startbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startbtn.ForeColor = System.Drawing.Color.Black;
-            this.startbtn.Location = new System.Drawing.Point(310, 139);
+            this.startbtn.Location = new System.Drawing.Point(310, 12);
             this.startbtn.Name = "startbtn";
             this.startbtn.Size = new System.Drawing.Size(112, 23);
             this.startbtn.TabIndex = 15;
@@ -224,7 +224,7 @@
             // 
             this.restartbtn.BackColor = System.Drawing.Color.Transparent;
             this.restartbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.restartbtn.Location = new System.Drawing.Point(309, 168);
+            this.restartbtn.Location = new System.Drawing.Point(309, 41);
             this.restartbtn.Name = "restartbtn";
             this.restartbtn.Size = new System.Drawing.Size(113, 23);
             this.restartbtn.TabIndex = 16;
@@ -236,7 +236,7 @@
             // 
             this.menubtn.BackColor = System.Drawing.Color.Transparent;
             this.menubtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.menubtn.Location = new System.Drawing.Point(310, 197);
+            this.menubtn.Location = new System.Drawing.Point(310, 70);
             this.menubtn.Name = "menubtn";
             this.menubtn.Size = new System.Drawing.Size(112, 23);
             this.menubtn.TabIndex = 17;
@@ -251,7 +251,7 @@
             this.colourModebox.Items.AddRange(new object[] {
             "Light Mode",
             "Dark Mode"});
-            this.colourModebox.Location = new System.Drawing.Point(309, 243);
+            this.colourModebox.Location = new System.Drawing.Point(308, 243);
             this.colourModebox.Name = "colourModebox";
             this.colourModebox.Size = new System.Drawing.Size(113, 21);
             this.colourModebox.TabIndex = 20;
@@ -261,7 +261,7 @@
             // 
             this.colourbtn.BackColor = System.Drawing.Color.Transparent;
             this.colourbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colourbtn.Location = new System.Drawing.Point(310, 110);
+            this.colourbtn.Location = new System.Drawing.Point(309, 99);
             this.colourbtn.Name = "colourbtn";
             this.colourbtn.Size = new System.Drawing.Size(112, 23);
             this.colourbtn.TabIndex = 21;
@@ -271,7 +271,7 @@
             // 
             // player1Colourpnl
             // 
-            this.player1Colourpnl.Location = new System.Drawing.Point(392, 12);
+            this.player1Colourpnl.Location = new System.Drawing.Point(391, 142);
             this.player1Colourpnl.Name = "player1Colourpnl";
             this.player1Colourpnl.Size = new System.Drawing.Size(14, 14);
             this.player1Colourpnl.TabIndex = 22;
@@ -279,7 +279,7 @@
             // 
             // player2Colourpnl
             // 
-            this.player2Colourpnl.Location = new System.Drawing.Point(392, 58);
+            this.player2Colourpnl.Location = new System.Drawing.Point(391, 188);
             this.player2Colourpnl.Name = "player2Colourpnl";
             this.player2Colourpnl.Size = new System.Drawing.Size(14, 14);
             this.player2Colourpnl.TabIndex = 23;
@@ -298,7 +298,7 @@
             "Easy",
             "Medium",
             "Hard"});
-            this.diffbox.Location = new System.Drawing.Point(309, 27);
+            this.diffbox.Location = new System.Drawing.Point(308, 157);
             this.diffbox.Name = "diffbox";
             this.diffbox.Size = new System.Drawing.Size(113, 21);
             this.diffbox.TabIndex = 24;
@@ -307,7 +307,7 @@
             // difflbl
             // 
             this.difflbl.AutoSize = true;
-            this.difflbl.Location = new System.Drawing.Point(307, 13);
+            this.difflbl.Location = new System.Drawing.Point(306, 143);
             this.difflbl.Name = "difflbl";
             this.difflbl.Size = new System.Drawing.Size(50, 13);
             this.difflbl.TabIndex = 25;
@@ -324,7 +324,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(436, 327);
+            this.ClientSize = new System.Drawing.Size(436, 323);
             this.Controls.Add(this.difflbl);
             this.Controls.Add(this.diffbox);
             this.Controls.Add(this.player2Colourpnl);
