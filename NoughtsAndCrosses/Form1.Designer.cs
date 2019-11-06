@@ -358,6 +358,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
             this.Text = "Dom\'s Noughts and Crosses";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.drawingpnl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

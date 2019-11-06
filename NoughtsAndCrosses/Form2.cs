@@ -46,5 +46,10 @@ namespace NoughtsAndCrosses
             form1.Show();
             this.Hide();
         }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

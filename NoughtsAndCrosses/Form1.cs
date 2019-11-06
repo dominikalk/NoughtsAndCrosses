@@ -713,7 +713,10 @@ namespace NoughtsAndCrosses
             form4.player2colour = player2Colour;
             form4.setColours();
             form4.form1 = this;
-            form4.singlePlayer();
+            if (isSinglePlayer)
+            {
+                form4.singlePlayer();
+            }
 
             if (colourModebox.SelectedIndex == 1)
             {
@@ -1448,6 +1451,11 @@ namespace NoughtsAndCrosses
                     break;
             }
             computerWait.Enabled = false;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
