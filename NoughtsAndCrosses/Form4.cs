@@ -13,6 +13,7 @@ namespace NoughtsAndCrosses
 {
     public partial class Form4 : Form
     {
+        // dont ask what happened to form 3
 
         public Color player1colour;
         public Color player2colour;
@@ -24,6 +25,7 @@ namespace NoughtsAndCrosses
             InitializeComponent();
         }
 
+        // changes label text is it is single player
         public void singlePlayer()
         {
             player1lbl.Text = "You";
@@ -82,6 +84,7 @@ namespace NoughtsAndCrosses
                     break;
             }
 
+            // so they dont have the same colour
             if (player1colour == player2colour)
             {
                 MessageBox.Show("Both players cannot use the same colour");
@@ -100,6 +103,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // so starts with the colours from form 1
         public void setColours() 
         {
             if (player1colour == Color.Red) 
@@ -161,6 +165,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // not used anymore
         public void darkMode() 
         {
             this.BackColor = System.Drawing.Color.FromArgb(70, 70, 70);

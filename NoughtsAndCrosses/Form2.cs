@@ -19,19 +19,14 @@ namespace NoughtsAndCrosses
             InitializeComponent();
         }
 
+        // if single player is clicked
         private void singlePlayerbtn_Click(object sender, EventArgs e)
         {
-            /*
-            Form1 form1 = new Form1();
-            Form3 form3 = new Form3();
-
-            form3.Show();
-            this.Hide();
-              */
-
+            // initialises form variables
             Form1 form1 = new Form1();
             Form2 form2 = new Form2();
 
+            // sets the variable value and calles a function inside the other form
             form1.isSinglePlayer = true;
             form1.singlePlayer();
 
@@ -48,11 +43,13 @@ namespace NoughtsAndCrosses
             this.Hide();
         }
 
+        // so exits propperly
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        // plays mario dreaming audio
         private void Form2_Load(object sender, EventArgs e)
         {
             SoundPlayer dream = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Dream);

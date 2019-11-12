@@ -15,6 +15,7 @@ namespace NoughtsAndCrosses
     {
         public bool isSinglePlayer;
 
+        // Main theme song, needs to be accessed in multiple places
         public SoundPlayer theme = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Theme);
 
         bool started;
@@ -53,20 +54,7 @@ namespace NoughtsAndCrosses
             diffbox.SelectedIndex = 0;
         }
 
-        /*
-        void drawLines()
-        {
-            System.Drawing.Graphics g;
-            g = drawingpnl.CreateGraphics();
-            System.Drawing.Pen p = new System.Drawing.Pen(System.Drawing.Color.Black);
-            p.Width = 5;
-            g.DrawRectangle(p, 81, 0, 3, 250);
-            g.DrawRectangle(p, 168, 0, 3, 250);
-            g.DrawRectangle(p, 0, 81, 250, 3);
-            g.DrawRectangle(p, 0, 168, 250, 3);
-        }
-          */
-
+        // Called is it is single player from the other form
         public void singlePlayer()
         {
             started = false;
@@ -83,6 +71,7 @@ namespace NoughtsAndCrosses
             player2txt.Visible = false;
         }
 
+        // Draws the cross or circle in the passed in location
         void changePicture(Panel pictureBox)
         {
             System.Drawing.Graphics g;
@@ -103,8 +92,10 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // The initial thing that is called when a squares is pressed
         void changeArray(int xVal, int yVal, Panel picBox)
         {
+            // if it is single player then this may be the computers go aswell
             if (!isSinglePlayer)
             {
                 if (win)
@@ -135,6 +126,7 @@ namespace NoughtsAndCrosses
 
                     bool carryOn = false;
 
+                    // working out if the board is full
                     for (int i = 0; i < 3; i++)
                     {
                         for (int v = 0; v < 3; v++)
@@ -169,6 +161,8 @@ namespace NoughtsAndCrosses
                 }
                 else if (!started)
                 {
+                    // windows forms has very limited audio features compared to WPF forms so 
+                    // i could only play 1 piece of audio at a time
                     theme.Stop();
                     SoundPlayer pressStart = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.PressStart);
                     pressStart.PlaySync();
@@ -228,7 +222,7 @@ namespace NoughtsAndCrosses
                     changePicture(picBox);
                     player1Using = !player1Using;
                     whosGo();
-                    checkWin(); //Check here
+                    checkWin(); 
 
                     bool carryOn = false;
 
@@ -256,6 +250,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // checks the possible ways to win and if any player did
         void checkWin()
         {
             int tempDiagonal1 = 0;
@@ -276,6 +271,7 @@ namespace NoughtsAndCrosses
             {
                 if (boardList[0, 3] == 3)
                 {
+                    // sets the pics to change colours when won
                     pic1 = TopLeftpic;
                     pic2 = TopMidpic;
                     pic3 = TopRightpic;
@@ -344,6 +340,7 @@ namespace NoughtsAndCrosses
                 isPlayer1Winner = true;
                 winChangeColour.Enabled = true;
             }
+            // same thing but for the other player
             if (boardList[0, 3] == 30 || boardList[1, 3] == 30 || boardList[2, 3] == 30 || boardList[3, 0] == 30 || boardList[3, 1] == 30 || boardList[3, 2] == 30 || tempDiagonal1 == 30 || tempDiagonal2 == 30)
             {
                 if (boardList[0, 3] == 30)
@@ -418,6 +415,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // Now its just all the panels click events
         private void TopLeftpic_Click(object sender, EventArgs e)
         {
             if (!isSinglePlayer)
@@ -426,6 +424,7 @@ namespace NoughtsAndCrosses
             }
             else
             {
+                // so only works if it is the players go
                 if (player1Using)
                 {
                     changeArray(0, 0, TopLeftpic);
@@ -559,6 +558,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // background grid painting
         private void drawingpnl_Paint(object sender, PaintEventArgs e)
         {
             System.Drawing.Graphics g;
@@ -571,6 +571,7 @@ namespace NoughtsAndCrosses
             g.DrawRectangle(p, 0, 168, 250, 3);
         }
 
+        // all the things that happen if the start button is clicked
         private void startbtn_Click(object sender, EventArgs e)
         {
             if (!isSinglePlayer)
@@ -589,6 +590,7 @@ namespace NoughtsAndCrosses
                     startbtn.Enabled = false;
                     player1 = player1txt.Text;
                     player2 = player2txt.Text;
+                    // Chooses who goes first
                     choosePlayer();
                 }
             }
@@ -610,6 +612,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // checks if the player names have been set
         bool checkPlayers()
         {
             if (player1 == "" || player2 == "")
@@ -622,6 +625,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // resets everything
         private void restartbtn_Click(object sender, EventArgs e)
         {
             diffbox.Enabled = true;
@@ -641,8 +645,10 @@ namespace NoughtsAndCrosses
             player1Using = true;
         }
 
+        // chooses who goes first
         void choosePlayer()
         {
+            // random number
             int temp = rnd.Next(0, 2);
             if (!isSinglePlayer)
             {
@@ -673,6 +679,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // when a players go changes this changes the text
         void whosGo()
         {
             if (!isSinglePlayer)
@@ -699,6 +706,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // opens the menu form
         private void menubtn_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
@@ -708,6 +716,7 @@ namespace NoughtsAndCrosses
             this.Hide();
         }
 
+        // dont use this anymore because im using a background image
         private void colourModebox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (colourModebox.SelectedIndex == 0)
@@ -736,6 +745,7 @@ namespace NoughtsAndCrosses
             //}
         }
 
+        // opens form to change the players colours
         private void colourbtn_Click(object sender, EventArgs e)
         {
             Form4 form4 = new Form4();
@@ -756,6 +766,7 @@ namespace NoughtsAndCrosses
             form4.Show();
         }
 
+        // Colour indicators next to the player name
         public void setPanelColours()
         {
             System.Drawing.Graphics g;
@@ -774,6 +785,7 @@ namespace NoughtsAndCrosses
             h.DrawRectangle(p2Pen, 0, 0, 13, 13);
         }
 
+        // initial painting colour
         private void player1Colourpnl_Paint(object sender, PaintEventArgs e)
         {
             System.Drawing.Graphics g;
@@ -783,6 +795,7 @@ namespace NoughtsAndCrosses
             g.DrawRectangle(p1Pen, 0, 0, 13, 13);
         }
 
+        // initial painting colour
         private void player2Colourpnl_Paint(object sender, PaintEventArgs e)
         {
             System.Drawing.Graphics h;
@@ -792,6 +805,7 @@ namespace NoughtsAndCrosses
             h.DrawRectangle(p2Pen, 0, 0, 13, 13);
         }
 
+        // changing colours when someone win
         private void winChangeColour_Tick(object sender, EventArgs e)
         {
             if (winColour < winColours.Length - 1)
@@ -805,6 +819,7 @@ namespace NoughtsAndCrosses
             changePic(pic1, pic2, pic3);
         }
 
+        // called when winChangeColour ticks
         void changePic(Panel thePic1, Panel thePic2, Panel thePic3)
         {
             Panel[] tempArray = { thePic1, thePic2, thePic3 };
@@ -833,8 +848,10 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // one second delay so seems like the computer is thinking
         private void computerWait_Tick(object sender, EventArgs e)
         {
+            // depending on difficulty
             if (diffbox.SelectedIndex == 0)
             {
                 easySingle();
@@ -849,6 +866,7 @@ namespace NoughtsAndCrosses
             }
         }
 
+        // easy difficulty: random
         void easySingle()
         {
             // Finds free spaces
@@ -898,7 +916,7 @@ namespace NoughtsAndCrosses
                 }
             }
 
-            // Calls changeArray for that position
+            // calls change array depending on what the x and y value were
             switch (x)
             {
                 case 0:
@@ -947,14 +965,15 @@ namespace NoughtsAndCrosses
             computerWait.Enabled = false;
         }
 
+        // this function makes a copy of the boardlist and puts a cross/circle there, it then checks if the computer wins or 
+        // loses and returns a value depending on if the computer one move away from winning or losing and acts accordingly
         int virtualCheckWin(int x, int y, bool tryingWin, int[,] arrayGiven)
         {
             // 0 = nothing
             // 1 = player would have won
             // 2 = player would have lost
 
-            //int[,] tempVirtualArray = new boardList;
-
+            // setting temp array
             int[,] tempVirtualArray = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
             for (int i = 0; i < 4; i++)
             {
@@ -973,10 +992,6 @@ namespace NoughtsAndCrosses
                 tempVirtualArray[x, y] = 1;
             }
 
-            Console.WriteLine("Arrays");
-            Console.WriteLine(boardList[x, y]);
-            Console.WriteLine(tempVirtualArray[x, y]);
-
             int tempDiagonal1 = 0;
             int tempDiagonal2 = 0;
 
@@ -991,6 +1006,7 @@ namespace NoughtsAndCrosses
             tempDiagonal1 = tempVirtualArray[0, 0] + tempVirtualArray[1, 1] + tempVirtualArray[2, 2];
             tempDiagonal2 = tempVirtualArray[2, 0] + tempVirtualArray[1, 1] + tempVirtualArray[0, 2];
 
+            // does the checks
             if (tempVirtualArray[0, 3] == 3 || tempVirtualArray[1, 3] == 3 || tempVirtualArray[2, 3] == 3 || tempVirtualArray[3, 0] == 3 || tempVirtualArray[3, 1] == 3 || tempVirtualArray[3, 2] == 3 || tempDiagonal1 == 3 || tempDiagonal2 == 3)
             {
                 if (tempVirtualArray[0, 3] == 3)
@@ -1076,6 +1092,7 @@ namespace NoughtsAndCrosses
 
         }
 
+        // medium difficulty: if can win/lose then random
         void mediumSingle()
         {
             // Finds free spaces
@@ -1178,6 +1195,7 @@ namespace NoughtsAndCrosses
                 }
             }
 
+            // calls change array depending on what the x and y value were
             switch (x)
             {
                 case 0:
@@ -1226,6 +1244,7 @@ namespace NoughtsAndCrosses
             computerWait.Enabled = false;
         }
 
+        // hard dificulty: tries to win using stratergies then if can win/lose then random
         void hardSingle()
         {
             // Finds free spaces
@@ -1435,6 +1454,7 @@ namespace NoughtsAndCrosses
                 }
             }
 
+            // calls change array depending on what the x and y value were
             switch (x)
             {
                 case 0:
@@ -1483,11 +1503,13 @@ namespace NoughtsAndCrosses
             computerWait.Enabled = false;
         }
 
+        // so it closes all the open forms so it exits propperly
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        // plays mario theme on load
         private void Form1_Load(object sender, EventArgs e)
         {
             theme.PlayLooping();
