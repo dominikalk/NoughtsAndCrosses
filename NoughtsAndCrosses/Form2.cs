@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace NoughtsAndCrosses
 {
@@ -50,6 +51,12 @@ namespace NoughtsAndCrosses
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            SoundPlayer dream = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Dream);
+            dream.PlayLooping();
         }
     }
 }

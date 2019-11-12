@@ -359,6 +359,7 @@
             this.Name = "Form1";
             this.Text = "Dom\'s Noughts and Crosses";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.drawingpnl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

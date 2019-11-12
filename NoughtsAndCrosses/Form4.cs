@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace NoughtsAndCrosses
 {
@@ -89,6 +90,9 @@ namespace NoughtsAndCrosses
             {
                 form1.player1Colour = player1colour;
                 form1.player2Colour = player2colour;
+                SoundPlayer okie = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.OkieDokie);
+                okie.PlaySync();
+                form1.theme.PlayLooping();
 
                 form1.setPanelColours();
 

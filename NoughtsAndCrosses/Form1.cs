@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace NoughtsAndCrosses
 {
@@ -14,13 +15,14 @@ namespace NoughtsAndCrosses
     {
         public bool isSinglePlayer;
 
+        public SoundPlayer theme = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Theme);
+
         bool started;
 
         bool player1Using;
         bool isPlayer1Winner;
 
         int[,] boardList = new int[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
-        int[,] locations = new int[,] { { 0, 0 }, { 0, 100 }, { 0, 200 }, { 100, 0 }, { 100, 100 }, { 100, 200 }, { 200, 0 }, { 200, 100 }, { 200, 200 } };
 
         string player1;
         string player2;
@@ -167,7 +169,12 @@ namespace NoughtsAndCrosses
                 }
                 else if (!started)
                 {
+                    theme.Stop();
+                    SoundPlayer pressStart = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.PressStart);
+                    pressStart.PlaySync();
+                    theme.PlayLooping();
                     MessageBox.Show("You must press start");
+                    
                 }
                 else if (player1Using)
                 {
@@ -318,10 +325,18 @@ namespace NoughtsAndCrosses
 
                 if (!isSinglePlayer)
                 {
+                    theme.Stop();
+                    SoundPlayer winSound = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Painting);
+                    winSound.PlaySync();
+                    theme.PlayLooping();
                     Winnerlbl.Text = player1 + " wins!";
                 }
                 else
                 {
+                    theme.Stop();
+                    SoundPlayer winSound = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Painting);
+                    winSound.PlaySync();
+                    theme.PlayLooping();
                     Winnerlbl.Text = "You win!";
                 }
 
@@ -382,11 +397,19 @@ namespace NoughtsAndCrosses
 
                 if (!isSinglePlayer)
                 {
+                    theme.Stop();
+                    SoundPlayer winSound = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Painting);
+                    winSound.PlaySync();
+                    theme.PlayLooping();
                     Winnerlbl.Text = player2 + " wins!";
                 }
                 else
                 {
-                    Winnerlbl.Text = "The computer wins!";
+                    theme.Stop();
+                    SoundPlayer gameOver = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.Gameover);
+                    gameOver.PlaySync();
+                    theme.PlayLooping();
+                    Winnerlbl.Text = "Game Over!";
                 }
 
                 win = true;
@@ -558,6 +581,10 @@ namespace NoughtsAndCrosses
                 }
                 else
                 {
+                    theme.Stop();
+                    SoundPlayer hereWeGo = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.HereWeGo);
+                    hereWeGo.PlaySync();
+                    theme.PlayLooping();
                     colourbtn.Enabled = false;
                     startbtn.Enabled = false;
                     player1 = player1txt.Text;
@@ -567,6 +594,10 @@ namespace NoughtsAndCrosses
             }
             else
             {
+                theme.Stop();
+                SoundPlayer hereWeGo = new SoundPlayer(NoughtsAndCrosses.Properties.Resources.HereWeGo);
+                hereWeGo.PlaySync();
+                theme.PlayLooping();
                 diffbox.Enabled = false;
                 started = true;
                 colourbtn.Enabled = false;
@@ -606,7 +637,6 @@ namespace NoughtsAndCrosses
             player2txt.Text = "";
             Winnerlbl.Text = "";
             Refresh();
-            locations = new int[,] { { 0, 0 }, { 0, 100 }, { 0, 200 }, { 100, 0 }, { 100, 100 }, { 100, 200 }, { 200, 0 }, { 200, 100 }, { 200, 200 } };
             boardList = new int[,] { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
             player1Using = true;
         }
@@ -1456,6 +1486,11 @@ namespace NoughtsAndCrosses
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            theme.PlayLooping();
         }
     }
 }

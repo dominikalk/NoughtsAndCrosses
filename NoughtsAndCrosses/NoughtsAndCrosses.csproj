@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +43,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form3.cs">
@@ -90,6 +92,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +106,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Dream.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Gameover.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\HereWeGo.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\OkieDokie.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Painting.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\PressStart.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
